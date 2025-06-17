@@ -70,6 +70,22 @@ $ mau deploy
 
 With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
+✅ When you change the database schema, follow these steps:
+
+```bash
+# 1. Generate the Prisma client (required after any schema change)
+npx prisma generate
+
+# 2. Create and apply a new migration (replace 'add-note-model' with your own name)
+npx prisma migrate dev --name add-note-model
+
+# 3. If you're not using migrations and want to push the schema directly to the DB
+npx prisma db push
+
+# 4. (Optional) Apply all pending migrations, useful for teammates who pulled new migrations
+npx prisma migrate dev
+```
+
 ## Resources
 
 Check out a few resources that may come in handy when working with NestJS:
